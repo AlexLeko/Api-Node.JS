@@ -10,13 +10,16 @@ const router = express.Router();
 // conecta ao banco
 mongoose.connect('mongodb://alexleko:leko123@ds041157.mlab.com:41157/lk_nodestr');
 
+// Carrega os Models
+const Product = require('./models/product');
+
 // carrega as rotas
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ 
-    extended: false 
+app.use(bodyParser.urlencoded({
+    extended: false
 }));
 
 app.use('/', indexRoute);
